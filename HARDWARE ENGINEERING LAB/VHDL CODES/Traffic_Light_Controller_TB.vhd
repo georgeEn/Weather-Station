@@ -13,16 +13,16 @@ ARCHITECTURE behavior OF tb_traffic_light_controller IS
          sensor : IN  std_logic;
          clk : IN  std_logic;
          rstn : IN  std_logic;
-	Highway_light  : out STD_LOGIC_VECTOR(2 downto 0); 
-    	 RemoteStreet_light:    out STD_LOGIC_VECTOR(2 downto 0)
+	Highway_light  : OUT STD_LOGIC_VECTOR(2 downto 0); 
+    	 RemoteStreet_light:    OUT STD_LOGIC_VECTOR(2 downto 0)
         );
     END COMPONENT;
    signal sensor : std_logic := '0';
    signal clk : std_logic := '0';
    signal rstn : std_logic := '0';
   --Outputs
-		Highway_light  : out STD_LOGIC_VECTOR(2 downto 0); -- Highway light outputs
-    	 	RemoteStreet_light:    out STD_LOGIC_VECTOR(2 downto 0)-- RemoteStreet light outputs 
+	signal	Highway_light  : STD_LOGIC_VECTOR(2 downto 0); -- Highway light outputs
+    	signal	RemoteStreet_light:   STD_LOGIC_VECTOR(2 downto 0); -- RemoteStreet light outputs 
    		constant clk_period : time := 10 ns;
 BEGIN
  -- Instantiate the traffic light controller 
