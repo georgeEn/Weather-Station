@@ -12,7 +12,7 @@ ARCHITECTURE behavior OF tb_traffic_light_controller IS
     PORT(
          sensor : IN  std_logic;
          clk : IN  std_logic;
-         rst_n : IN  std_logic;
+         rstn : IN  std_logic;
          light_highway : OUT  std_logic_vector(2 downto 0);
          light_farm : OUT  std_logic_vector(2 downto 0)
         );
@@ -29,7 +29,7 @@ BEGIN
    trafficlightcontroller : traffic_light_controller PORT MAP (
           sensor => sensor,
           clk => clk,
-          rst_n => rst_n,
+          rstn => rstn,
           light_highway => light_highway,
           light_farm => light_farm
         );
@@ -43,10 +43,10 @@ BEGIN
    end process;
    stim_proc: process
    begin    
-  rst_n <= '0';
+  rstn <= '0';
   sensor <= '0';
       wait for clk_period*10;
-  rst_n <= '1';
+  rstn <= '1';
   wait for clk_period*20;
   sensor <= '1';
   wait for clk_period*100;
