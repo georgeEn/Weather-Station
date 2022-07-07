@@ -13,25 +13,25 @@ ARCHITECTURE behavior OF tb_traffic_light_controller IS
          sensor : IN  std_logic;
          clk : IN  std_logic;
          rstn : IN  std_logic;
-         light_highway : OUT  std_logic_vector(2 downto 0);
-         light_farm : OUT  std_logic_vector(2 downto 0)
+	Highway_light  : out STD_LOGIC_VECTOR(2 downto 0); 
+    	 RemoteStreet_light:    out STD_LOGIC_VECTOR(2 downto 0)
         );
     END COMPONENT;
    signal sensor : std_logic := '0';
    signal clk : std_logic := '0';
-   signal rst_n : std_logic := '0';
+   signal rstn : std_logic := '0';
   --Outputs
-   signal light_highway : std_logic_vector(2 downto 0);
-   signal light_farm : std_logic_vector(2 downto 0);
-   constant clk_period : time := 10 ns;
+		Highway_light  : out STD_LOGIC_VECTOR(2 downto 0); -- Highway light outputs
+    	 	RemoteStreet_light:    out STD_LOGIC_VECTOR(2 downto 0)-- RemoteStreet light outputs 
+   		constant clk_period : time := 10 ns;
 BEGIN
  -- Instantiate the traffic light controller 
    trafficlightcontroller : traffic_light_controller PORT MAP (
           sensor => sensor,
           clk => clk,
           rstn => rstn,
-          light_highway => light_highway,
-          light_farm => light_farm
+          Highway_light => Highway_light,
+          RemoteStreet_light => RemoteStreet_light
         );
    -- Clock process definitions
    clk_process :process
